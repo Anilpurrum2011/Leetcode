@@ -7,7 +7,7 @@ public:
                     int j = i + 1;
                     while (j < k) {
                     maxi = max(maxi,(long(nums[i] - nums[j]) * nums[k]));
-                    j++;
+                    j+=1;
                     }
                 }
             }
