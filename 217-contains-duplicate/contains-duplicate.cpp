@@ -12,18 +12,29 @@
 //     }
 // };
 
+// class Solution {
+// public:
+//     bool containsDuplicate(vector<int>& nums) {
+//     unordered_map<int,int>maps;
+//     for(int num:nums){
+//         if(maps[num]>=1){
+//             return true;
+//         }
+//         maps[num]++;
+//     }
+//     return false;
+
+//     }
+// };
+
+
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-    unordered_map<int,int>maps;
-    for(int num:nums){
-        if(maps[num]>=1){
-            return true;
-        }
-        maps[num]++;
+    set<int>sets(nums.begin(),nums.end());
+    if(sets.size()==nums.size()){
+        return false;
     }
-    return false;
-
+    return true;
     }
 };
-
