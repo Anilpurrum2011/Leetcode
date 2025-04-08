@@ -28,13 +28,30 @@
 // };
 
 
+// class Solution {
+// public:
+//     bool containsDuplicate(vector<int>& nums) {
+//     set<int>sets(nums.begin(),nums.end());
+//     if(sets.size()==nums.size()){
+//         return false;
+//     }
+//     return true;
+//     }
+// };
+
+
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-    set<int>sets(nums.begin(),nums.end());
-    if(sets.size()==nums.size()){
-        return false;
+    unordered_map<int,int>maps;
+    for(int i=0;i<nums.size();i++){
+        maps[nums[i]]++;
     }
-    return true;
+    for(int i=0;i<maps.size();i++){
+        if(maps[nums[i]]>1){
+            return true;
+        }
+    }
+    return false;
     }
 };
