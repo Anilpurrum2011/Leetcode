@@ -7,7 +7,7 @@ public:
             if (s.size() % 2 == 0 && 
             accumulate(s.begin(), s.begin() + s.size()/2, 0) ==
             accumulate(s.begin() + s.size()/2, s.end(), 0))
-                count++;
+                count+=1;
         }
         return count;
     }
