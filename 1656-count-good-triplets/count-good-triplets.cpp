@@ -8,7 +8,7 @@ class Solution {
                     if (abs(arr[i] - arr[j]) <= a && 
                         abs(arr[j] - arr[k]) <= b &&
                         abs(arr[i] - arr[k]) <= c) 
-                        ++good; 
+                        good+=1; 
                 }
             }
             return good;
