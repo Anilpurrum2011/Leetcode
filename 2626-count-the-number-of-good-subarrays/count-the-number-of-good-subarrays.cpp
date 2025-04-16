@@ -5,7 +5,7 @@ public:
         for (int i = 0, left = 0 ; i < nums.size() ; i++) {
             k -= mpp[nums[i]]++;
             while (k <= 0) k += --mpp[nums[left++]];
-            cnt += left;
+            cnt =cnt+ left;
         }
         return cnt;
     }
