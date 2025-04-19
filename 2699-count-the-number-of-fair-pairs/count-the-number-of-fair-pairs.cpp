@@ -7,7 +7,7 @@ public:
         for(int i=0;i<n;i++){
             int lb = lower_bound(nums.begin()+i+1,nums.end(),lower-nums[i])-nums.begin();
             int ub = upper_bound(nums.begin()+i+1,nums.end(),upper-nums[i])-nums.begin();
-            ans += (ub - lb);
+            ans =ans+ (ub - lb);
         }
         return ans;
     }
