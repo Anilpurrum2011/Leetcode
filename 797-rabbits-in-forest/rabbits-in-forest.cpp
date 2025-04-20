@@ -10,7 +10,7 @@ public:
         for (auto& [k, v] : freq) {
             int groupSize = k + 1;
             int groups = (v + k) / groupSize;
-            count =count+ groups * groupSize;
+            count += groups * groupSize;
         }
 
         return count; 
