@@ -29,18 +29,33 @@
 
 
 
+// class Solution {
+// public:
+//     bool hasPathSum(TreeNode* root, int targetSum) {
+//         if(root==nullptr){
+//             return false;
+//         }
+//         if(!root->left && !root->right){
+//             return targetSum==root->val;
+//         }
+//         bool leftsum=hasPathSum(root->left,targetSum-root->val);
+//         bool rightsum=hasPathSum(root->right,targetSum-root->val);
+         
+//         return leftsum|| rightsum;
+//     }
+// };
+
+
+
 class Solution {
 public:
     bool hasPathSum(TreeNode* root, int targetSum) {
         if(root==nullptr){
             return false;
         }
-        if(!root->left && !root->right){
+        if(root->left==nullptr&& root->right==nullptr){
             return targetSum==root->val;
         }
-        bool leftsum=hasPathSum(root->left,targetSum-root->val);
-        bool rightsum=hasPathSum(root->right,targetSum-root->val);
-         
-         return leftsum|| rightsum;
+        return hasPathSum(root->left,targetSum-root->val)||hasPathSum(root->right,targetSum-root->val);
     }
 };
