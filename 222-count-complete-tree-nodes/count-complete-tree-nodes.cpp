@@ -9,12 +9,21 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+// class Solution {
+// public:
+//     int countNodes(TreeNode* root) {
+//         if(root==nullptr){
+//             return 0;
+//         }        
+//         return 1+countNodes(root->left)+countNodes(root->right);
+//     }
+// };
+
+
+
 class Solution {
 public:
     int countNodes(TreeNode* root) {
-        if(root==nullptr){
-            return 0;
-        }        
-        return 1+countNodes(root->left)+countNodes(root->right);
+     return (root==nullptr)?0:1+countNodes(root->left)+countNodes(root->right);
     }
 };
