@@ -32,19 +32,27 @@
 
 class Solution {
 public:
-    void swap(TreeNode* root){
+    // void swap(TreeNode* root){
+    //     if(!root){
+    //         return;
+    //     }
+    //     swap(root->left);
+    //     swap(root->right);
+    //     TreeNode* temp;
+    //     temp=root->left;
+    //     root->left=root->right;
+    //     root->right=temp;
+    // }
+    TreeNode* invertTree(TreeNode* root) {
         if(!root){
-            return;
+            return nullptr;
         }
-        swap(root->left);
-        swap(root->right);
+        invertTree(root->left);
+        invertTree(root->right);
         TreeNode* temp;
         temp=root->left;
         root->left=root->right;
         root->right=temp;
-    }
-    TreeNode* invertTree(TreeNode* root) {
-    swap(root);
-    return root;
+        return root;
     }
 };
