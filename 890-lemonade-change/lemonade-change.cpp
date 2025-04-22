@@ -25,25 +25,53 @@
 
 
 
+// class Solution {
+// public:
+//     bool lemonadeChange(vector<int>& bills) {
+//     unordered_map<int,int>maps;
+//     for(auto bill :bills){
+//         int change=bill-5;
+//         if(change==5){
+//             if(maps[5]==0)return false;
+//             else maps[5]--;
+//         }
+//         else if(change==15){
+//             if(maps[5]>=1 && maps[10]>=1){
+//                 maps[5]--;
+//                 maps[10]--;
+//             }
+//             else if(maps[5]>=3) maps[5]+=-3;
+//             else return false;
+//         }
+//         maps[bill]++;
+//     }
+//     return true;
+//     }
+// };
+
+
+
 class Solution {
 public:
     bool lemonadeChange(vector<int>& bills) {
     unordered_map<int,int>maps;
-    for(auto bill :bills){
-        int change=bill-5;
-        if(change==5){
-            if(maps[5]==0)return false;
-            else maps[5]--;
+    for(auto bill:bills){
+        maps[bill]++;
+        if(bill==10){
+            maps[5]--;
         }
-        else if(change==15){
-            if(maps[5]>=1 && maps[10]>=1){
+        else if(bill==20){
+            if(maps[10]>0){
                 maps[5]--;
                 maps[10]--;
             }
-            else if(maps[5]>=3) maps[5]+=-3;
-            else return false;
+            else{
+                maps[5]+=-3;
+            }
         }
-        maps[bill]++;
+        if(maps[5]<0){
+            return false;
+        }
     }
     return true;
     }
