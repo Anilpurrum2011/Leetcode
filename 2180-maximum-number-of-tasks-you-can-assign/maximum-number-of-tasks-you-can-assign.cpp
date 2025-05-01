@@ -29,11 +29,12 @@ public:
                 }
                 workersFree.erase(it);
             }
-
-            if(canAssign)
+            if(canAssign){
                 left = mid;
-            else
+            }
+            else{
                 right = mid - 1;
+            }
         }
         return left;
     }
