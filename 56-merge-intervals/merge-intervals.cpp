@@ -46,23 +46,48 @@
 // };
 
 
+// class Solution {
+// public:
+//     vector<vector<int>> merge(vector<vector<int>>& intervals) {
+//         int n=intervals.size();
+//         vector<vector<int>>res;
+//         if(n==1){
+//             return intervals;
+//         }
+//         sort(intervals.begin(),intervals.end());
+//         for(int i=0;i<n;i++){
+//             if(res.empty() || res.back()[1]<intervals[i][0]){
+//                 res.push_back(intervals[i]);
+//             }
+//             else{
+//                 res.back()[1]=max(res.back()[1],intervals[i][1]);
+//             }
+//         }
+//         return res;
+//     }
+// };
+
+
 class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
-        int n=intervals.size();
-        vector<vector<int>>res;
-        if(n==1){
-            return intervals;
+    int n=intervals.size();
+    vector<vector<int>>res;
+    if(n==0){
+      return res;
+    }
+    sort(intervals.begin(),intervals.end());
+    vector<int>tempi=intervals[0];
+    for(auto it:intervals){
+        if(it[0]<=tempi[1]){
+            tempi[1]=max(it[1],tempi[1]);
         }
-        sort(intervals.begin(),intervals.end());
-        for(int i=0;i<n;i++){
-            if(res.empty() || res.back()[1]<intervals[i][0]){
-                res.push_back(intervals[i]);
-            }
-            else{
-                res.back()[1]=max(res.back()[1],intervals[i][1]);
-            }
+        else{
+           res.push_back(tempi);
+           tempi=it;
         }
-        return res;
+    }
+    res.push_back(tempi);
+    return res;
     }
 };
