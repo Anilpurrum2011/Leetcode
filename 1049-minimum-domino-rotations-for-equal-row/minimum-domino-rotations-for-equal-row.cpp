@@ -16,6 +16,10 @@ public:
             if (valid)
                 res = min(res, min(top_swaps, bottom_swaps));
         }
-        return res == INT_MAX ? -1 : res;
+        if(res == INT_MAX)
+        { 
+            return -1;
+        }
+        return res;
     }
 };
